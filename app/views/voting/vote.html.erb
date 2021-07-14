@@ -1,0 +1,10 @@
+<h1>Voting#vote</h1>
+<p>Find me in app/views/voting/vote.html.erb</p>
+
+<% quote1 = Quote.order('RANDOM()').first %> <br>
+<% quote2 = Quote.where.not(id: quote1.id).order('RANDOM()').first %>
+
+<%= button_to quote1.title, { :controller => "voting", :action => "voteForQuote", :data => { :chosen => quote1.title, :other => quote2.title} }, method: :post %>
+
+<br>
+<%= button_to quote2.title, { :controller => "voting", :action => "voteForQuote", :data => { :chosen => quote2.title, :other => quote1.title} }, method: :post %>

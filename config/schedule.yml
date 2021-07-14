@@ -1,0 +1,4 @@
+sendMail:
+  cron: "*/2 * * * *"
+  class: SendMail
+  queue: default
